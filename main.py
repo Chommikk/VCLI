@@ -5,7 +5,7 @@ import os
 
 def main():
     if len(sys.argv) == 2 and sys.argv[1] == "pull":
-       print(get_message("hidtext.png"))
+       print(get_message("hidtest.png"))
 
     elif len(sys.argv) == 3 and sys.argv[1] == "initialize":
         if os.path.exists(".vcli"):
@@ -19,7 +19,9 @@ def main():
         if not os.path.exists(".vcli"):
             print("repository not initialized cannot push")
         else:
-            hide_message(sys.argv[2], "test.png")
+            with open("main.py") as f:
+                content = f.read()
+            hide_message(content, "test.png")
 
 if __name__ == "__main__":
     main()

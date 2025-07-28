@@ -1,11 +1,12 @@
 from linkedin import text_to_linkedin
 from image_encoding import hide_message, get_message
+import utils
 import sys
 import os
 
 def main():
     if len(sys.argv) == 2 and sys.argv[1] == "pull":
-       print(get_message("hidtest.png"))
+       utils.recreate_files(get_message("hidtest.png"))
 
     elif len(sys.argv) == 3 and sys.argv[1] == "initialize":
         if os.path.exists(".vcli"):
@@ -19,9 +20,13 @@ def main():
         if not os.path.exists(".vcli"):
             print("repository not initialized cannot push")
         else:
-            with open("main.py") as f:
-                content = f.read()
+            content = utils.get_all_files()
             hide_message(content, "test.png")
+    else:
+        print("bad usage")
+
+
+
 
 if __name__ == "__main__":
     main()

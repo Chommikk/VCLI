@@ -1,0 +1,6 @@
+selenium
+stegano
+pillow
+numpy
+bitarray
+python-dotenv
